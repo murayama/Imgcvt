@@ -4,7 +4,7 @@ require 'rubygems'
 require 'RMagick'
 
 module Imgcvt
-  $LOAD_PATH << 'lib'
+  $LOAD_PATH << 'lib/Imgcvt'
   autoload :Main, 'imgcvt/main'
   autoload :Options, 'imgcvt/options'
   autoload :Converter, 'imgcvt/converter'
