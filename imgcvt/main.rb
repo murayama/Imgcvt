@@ -21,6 +21,9 @@ module Imgcvt
       # ファイルが存在しなかったら404
       return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless File.exist?(file_path)
 
+      # ファイルに読み込み権限がなかったら404
+      return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless File.readable?(file_path)
+
       # jpgかgifじゃなかったら404
       ext = File.extname(file_path);
       return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless /jpg|jpeg|gif/i =~ ext
