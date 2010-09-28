@@ -1,27 +1,5 @@
 # coding: utf-8
 
-# 画像変換Rackアプリケーション
-# 画像変換をしてレスポンスを返す
-# 指定以外のディレクトリの場合はスルーする
-# クエリパラメーターで指定された条件で画像を変換する
-#
-# Use Example:
-# 以下の用にmapを使用する
-# mapで指定するディレクトリは実在するディレクトリではなくても構わない
-# 元画像の場所を指定することもできる。デフォルトは'./public/images/'
-#
-#  map '/image' do
-#   run Imgcvt::Main.new
-#  end
-#
-# Request Example
-#   w  width pxで指定
-#   h  height pxで指定
-#   cc センタークロップ onで指定
-#   cr ドコモとauの著作権保護コメントを埋め込む onで指定
-#   q  jpeg画像のクオリティ 1〜100で指定
-#
-#   http://hoge.com/image/example.jpg?w=150&h=100
 module Imgcvt
   class Main 
 
