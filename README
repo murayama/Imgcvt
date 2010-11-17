@@ -4,7 +4,7 @@
 jpeg画像とgif画像のみ対応
 
 # Use Example:
-通常のRackアプリケーションと共存する場合は以下の用にmapを使用する
+通常のRackアプリケーションと共存する場合はconfig.ruで以下の用にmapを使用する
 mapで指定するディレクトリは実在するディレクトリではなくても構わない
 元画像の場所を指定することもできる。デフォルトは'./public/images/'
 
@@ -13,8 +13,8 @@ mapで指定するディレクトリは実在するディレクトリではな�
  end
 
 # Request Example
-  w  width pxで指定
-  h  height pxで指定
+  w  width 数字(px)で指定
+  h  height 数字(px)で指定
   cc センタークロップ onで指定
   cr ドコモとauの著作権保護コメントを埋め込む onで指定
   q  jpeg画像のクオリティ 1〜100で指定
@@ -31,7 +31,7 @@ mapで指定するディレクトリは実在するディレクトリではな�
 # File
 .
 |-- README
-|-- imgcvt
+|-- lib
 |   |-- converter.rb
 |   |-- main.rb
 |   `-- options.rb
