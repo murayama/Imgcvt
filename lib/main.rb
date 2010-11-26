@@ -19,14 +19,14 @@ module Imgcvt
       # Rack::CacheとかApacheのmod_cacheとか
 
       # ファイルが存在しなかったら404
-      return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless File.exist?(file_path)
+      return [404, {"Content-Type" => "text/plain"}, ["404 Not Found"]] unless File.exist?(file_path)
 
       # ファイルに読み込み権限がなかったら404
-      return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless File.readable?(file_path)
+      return [404, {"Content-Type" => "text/plain"}, ["404 Not Found"]] unless File.readable?(file_path)
 
       # jpgかgifじゃなかったら404
       ext = File.extname(file_path);
-      return [404, {"Content-Type", "text/plain"}, ["404 Not Found"]] unless /jpg|jpeg|gif/i =~ ext
+      return [404, {"Content-Type" =>"text/plain"}, ["404 Not Found"]] unless /jpg|jpeg|gif/i =~ ext
 
       # オプションをセット
       options = Imgcvt::Options.new( params )
@@ -39,7 +39,7 @@ module Imgcvt
 
       # mime_typeを取得する
       content_type = converter.mime_type
-      [200, {"Content-Type", content_type}, [img]]
+      [200, {"Content-Type" => content_type}, [img]]
     end
   end
 end
