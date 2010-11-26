@@ -3,13 +3,16 @@
 クエリパラメーターで指定された条件で画像を変換する
 jpeg画像とgif画像のみ対応
 
+# オプション
+:img_dir 元画像の場所を指定する。デフォルトは'./public/images/'
+:headers 正常なレスポンス時のHTTPヘッダーをハッシュで記述する
+
 # Use Example:
 通常のRackアプリケーションと共存する場合はconfig.ruで以下の用にmapを使用する
 mapで指定するディレクトリは実在するディレクトリではなくても構わない
-元画像の場所を指定することもできる。デフォルトは'./public/images/'
 
  map '/image' do
-  run Imgcvt::Main.new( :img_dir => './public/images')
+  run Imgcvt::Main.new( :img_dir => './public/images', :headers => {"Expires" => "#{Time.now + 30}"})
  end
 
 # Request Example

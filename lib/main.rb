@@ -5,6 +5,7 @@ module Imgcvt
 
     def initialize(options={})
       @img_dir = options[:img_dir] ||= './public/images/'
+      @headers = options[:headers] ||= {}
     end
 
     def call(env)
@@ -40,7 +41,8 @@ module Imgcvt
 
         # mime_typeを取得する
         content_type = converter.mime_type
-        [200, {"Content-Type" => content_type}, [img]]
+        @headers.merge!( { "Content-Type" => content_type } )
+        [200, @headers, [img]]
       rescue
         [404, {"Content-Type" =>"text/plain"}, ["404 Not Found"]]
       end
